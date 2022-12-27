@@ -1,5 +1,5 @@
 """
-Tests por recipe APIs.
+Tests for recipe APIs.
 """
 from decimal import Decimal
 
@@ -41,7 +41,7 @@ def create_recipe(user, **params):
     return recipe
 
 
-class PublicRecipeAPITests(TestCase):
+class PublicRecipeApiTests(TestCase):
     """Test unauthenticated API requests."""
 
     def setUp(self):
@@ -66,7 +66,7 @@ class PrivateRecipeAPITests(TestCase):
         self.client.force_authenticate(self.user)
 
     def test_retrieve_recipes(self):
-        """Test retrieveing a list of recipes"""
+        """Test retrieving a list of recipes."""
         create_recipe(user=self.user)
         create_recipe(user=self.user)
 
@@ -104,7 +104,7 @@ class PrivateRecipeAPITests(TestCase):
         self.assertEqual(res.data, serializer.data)
 
     def test_create_recipe(self):
-        """Test creating a recipe"""
+        """Test creating a recipe."""
         payload = {
             'title': 'Sample recipe',
             'time_minutes': 30,
